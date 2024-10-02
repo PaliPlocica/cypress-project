@@ -28,13 +28,13 @@ describe('Dashboard Menu', () => {
       .find('li')
       .contains(mainSections[1])
       .parents('li.list-none.p-0')
-      .click()
-      .within(() => {
-        cy.get('a').contains('Installing Cypress').should('be.visible');
-        cy.get('a')
-          .eq(0)
-          .should('have.attr', 'href', queryDashboard.guidesInstallingCypress);
-      });
+      .click();
+    cy.wait(1000).within(() => {
+      cy.get('a').contains('Installing Cypress').should('be.visible');
+      cy.get('a')
+        .eq(0)
+        .should('have.attr', 'href', queryDashboard.guidesInstallingCypress);
+    });
     cy.url().should('include', queryDashboard.gettingStartedInstallingCypress);
   });
 });
