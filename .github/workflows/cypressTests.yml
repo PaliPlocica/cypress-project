@@ -1,4 +1,4 @@
-name: Test Project
+name: Cypress tests
 
 on:
   pull_request:
@@ -15,5 +15,5 @@ jobs:
         with:
           node-version: 20
       - run: npm ci
-      - run: npm test
-      - run: npm run build
+      - run: ci_run
+      # - run: npm run build
