@@ -1,0 +1,25 @@
+{
+  "devDependencies": {
+    "@types/cypress": "^0.1.6",
+    "@types/mocha": "^10.0.8",
+    "@types/node": "^22.7.2",
+    "@typescript-eslint/eslint-plugin": "^8.8.0",
+    "@typescript-eslint/parser": "^8.8.0",
+    "cypress": "^13.15.0",
+    "eslint": "^9.11.1",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-prettier": "^5.2.1",
+    "prettier": "^3.3.3",
+    "typescript": "^5.6.2"
+  },
+  "dependencies": {
+    "chai": "^5.1.1"
+  },
+  "private": true,
+  "scripts": {
+    "lint:write:tests": "eslint './cypress/**/*.{ts,js}' --fix",
+    "lint:check:tests": "eslint './cypress/**/*.{ts,js}'",
+    "cypress:run:tests": "npx cypress run --spec cypress/e2e/*  --headless --browser chrome",
+    "ci_run": "npx cypress run --spec cypress/e2e/* --config baseUrl='https://docs.cypress.io/' --headless --browser $BROWSER"
+  }
+}

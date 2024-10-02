@@ -1,0 +1,21 @@
+{
+  "compilerOptions": {
+    "target": "es6",
+    "lib": ["es6", "dom"],
+    "types": ["cypress", "node", "mocha"],
+    "strict": true,
+    "esModuleInterop": true,
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "skipLibCheck": true
+  },
+  "include": [
+    "cypress/support/**/*.ts",
+    "cypress/**/*.ts",
+    "support/**/*.ts",
+    "plugins/**/*.ts",
+    "cypress/e2e/languageSupport.cy.js"
+  ],
+  "exclude": ["node_modules"]
+}
