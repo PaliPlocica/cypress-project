@@ -1,14 +1,11 @@
 import { searchBox } from './page_objects/search_bar';
 
 export function acceptCookies(): void {
-  cy.get('button')
-    .contains('Accept All', { timeout: 10000 })
-    .then(($button) => {
-      if ($button.length > 0) {
-        // Directly trigger a click event if the button exists
-        $button.click({ force: true });
-      }
-    });
+  cy.get('.osano-cm-accept-all', { timeout: 5000 }).then(($button) => {
+    if ($button.length > 0) {
+      cy.wrap($button).contains('Accept All').click({ force: true });
+    }
+  });
 }
 
 export function clickSearchBox(): void {

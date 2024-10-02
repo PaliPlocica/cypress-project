@@ -23,19 +23,24 @@ describe('Dashboard Menu', () => {
   it('Navigate to category and subcategory', () => {
     cy.get(sideBar).find('button').contains(mainSections[1]).click();
 
-    // .within() for scoping
     cy.get(sideBar)
       .find('li')
       .contains(mainSections[1])
       .parents('li.list-none.p-0')
-      .click()
+      .should('be.visible')
+      .click();
+
+    cy.get(sideBar)
+      .find('li')
+      .contains(mainSections[1])
+      .parents('li.list-none.p-0')
       .within(() => {
-        cy.wait(1000);
         cy.get('a').contains('Installing Cypress').should('be.visible');
         cy.get('a')
           .eq(0)
           .should('have.attr', 'href', queryDashboard.guidesInstallingCypress);
       });
+
     cy.url().should('include', queryDashboard.gettingStartedInstallingCypress);
   });
 });
