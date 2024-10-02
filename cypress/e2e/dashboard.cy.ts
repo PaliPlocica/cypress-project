@@ -7,7 +7,7 @@ import {
 } from '../support/page_objects/dashboard';
 
 describe('Dashboard Menu', () => {
-  before(() => {
+  beforeEach(() => {
     cy.viewport(1280, 720);
     cy.visitCypress();
     acceptCookies();

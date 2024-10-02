@@ -1,7 +1,9 @@
 import { searchBox } from './page_objects/search_bar';
 
 export function acceptCookies(): void {
-  cy.get('button').contains('Accept All', { timeout: 10000 }).click();
+  cy.get('button')
+    .contains('Accept All', { timeout: 10000 })
+    .click({ force: true });
 }
 
 export function clickSearchBox(): void {
