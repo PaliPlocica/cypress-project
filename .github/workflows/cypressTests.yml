@@ -1,39 +1,27 @@
-# name: Cypress tests
-
-# on:
-#   pull_request:
-#     branches:
-#       - main
-
-# jobs:
-#   test:
-#     runs-on: ubuntu-latest
-#     container:
-#       image: node:20
-#     steps:
-#       - uses: actions/checkout@v3
-#         with:
-#           node-version: 20
-#       - run: npm ci
-#       - run: ci_run
-#       # - run: npm run build
-
 name: Cypress tests
-on: push
+
+on:
+  push:
+    branches:
+      - main # Modify this to your relevant branch if needed
+
 jobs:
   cypress-run:
     runs-on: ubuntu-22.04
+
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+
       # Install npm dependencies, cache them correctly
       # and run all Cypress tests
       - name: ci_run
         uses: cypress-io/github-action@v6
 
-- name: Archive Cypress screenshots and videos
-  if: failure()
-  uses: actions/upload-artifact@v3
-  with:
-    name: cypress-artifacts
-    path: cypress/screenshots, cypress/videos
+      # Archive screenshots and videos if tests fail
+      - name: Archive Cypress screenshots and videos
+        if: failure()
+        uses: actions/upload-artifact@v3
+        with:
+          name: cypress-artifacts
+          path: cypress/screenshots, cypress/videos
