@@ -31,7 +31,7 @@ jobs:
       - name: ci_run
         uses: cypress-io/github-action@v6
 
-name: Archive Cypress screenshots and videos
+- name: Archive Cypress screenshots and videos
   if: failure()
   uses: actions/upload-artifact@v3
   with:
