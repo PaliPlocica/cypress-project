@@ -6,6 +6,9 @@ module.exports = defineConfig({
     openMode: 0, // No retries locally
   },
   e2e: {
-    baseUrl: 'https://docs.cypress.io/',
+    baseUrl: 'https://docs.cypress.io',
+    defaultCommandTimeout: 10000,
+    viewportWidth: 1280,
+    viewportHeight: 720,
   },
 });

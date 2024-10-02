@@ -8,7 +8,6 @@ import {
 
 describe('Dashboard Menu', () => {
   beforeEach(() => {
-    cy.viewport(1280, 720);
     cy.visitCypress();
     acceptCookies();
   });

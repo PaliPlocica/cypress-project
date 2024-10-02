@@ -20,6 +20,6 @@
     "lint:write:tests": "eslint './cypress/**/*.{ts,js}' --fix",
     "lint:check:tests": "eslint './cypress/**/*.{ts,js}'",
     "cypress:run:tests": "npx cypress run --spec cypress/e2e/*  --headless --browser chrome",
-    "ci_run": "npx cypress run --spec cypress/e2e/* --headless --browser chrome"
+    "ci_run": "npx cypress run --spec cypress/e2e/* --headless --browser chrome --config video=true,screenshotOnRunFailure=true"
   }
 }
