@@ -30,3 +30,10 @@ jobs:
       # and run all Cypress tests
       - name: ci_run
         uses: cypress-io/github-action@v6
+
+name: Archive Cypress screenshots and videos
+  if: failure()
+  uses: actions/upload-artifact@v3
+  with:
+    name: cypress-artifacts
+    path: cypress/screenshots, cypress/videos

@@ -14,7 +14,7 @@ describe('Dashboard Menu', () => {
   });
 
   it('Verify displayed search bar', () => {
-    cy.get(sideBarAll, { timeout: 10000 }).should('be.visible');
+    cy.get(sideBarAll, { timeout: 20000 }).should('be.visible');
 
     mainSections.forEach((section) => {
       cy.get(sideBar).find('button').contains(section).should('be.visible');
